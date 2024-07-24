@@ -11,7 +11,7 @@ interface BlogPost {
   content: string;
   image: string;
   author: string;
-  date: string; // Add date field
+  date: string; 
 }
 
 @Component({

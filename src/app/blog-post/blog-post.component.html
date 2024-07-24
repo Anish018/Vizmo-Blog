@@ -1,11 +1,10 @@
 <div *ngIf="blogPost" class="blog-post">
-    <button class="back-btn" mat-raised-button color="primary" (click)="goBack()">Back</button>
-    <h2>{{ blogPost.title }}</h2>
-    <div class="details">
-        <p class="author"> {{ blogPost.author }} </p> 
-        <p class="date"> {{ blogPost.date }}</p>
-    </div>
-    <img [src]="blogPost.image" alt="{{ blogPost.title }}" class="blog-post-image">
-    <div class="text" [innerHTML]="formattedContent"></div>
+  <button class="back-btn" mat-raised-button color="primary" (click)="goBack()">Back</button>
+  <h2>{{ blogPost.title }}</h2>
+  <div class="details">
+    <p class="author">{{ blogPost.author }}</p>
+    <p class="date">{{ blogPost.date }}</p>
   </div>
-  
+  <img [src]="blogPost.image" alt="{{ blogPost.title }}" class="blog-post-image">
+  <div class="text" [innerHTML]="formattedContent"></div>
+</div>
