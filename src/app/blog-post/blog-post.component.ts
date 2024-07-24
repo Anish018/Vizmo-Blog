@@ -51,7 +51,7 @@ export class BlogPostComponent implements OnInit {
     let formattedContent = '';
 
     paragraphs.forEach((paragraph, index) => {
-      if (index % 2 === 1) {
+      if (index % 8 === 1) {
         formattedContent += adHtml;
       }
       formattedContent += paragraph + '</p>';
@@ -63,8 +63,10 @@ export class BlogPostComponent implements OnInit {
   resizeImages(): void {
     setTimeout(() => {
       const images = this.el.nativeElement.querySelectorAll('.text img');
+      const maxWidth = window.innerWidth <= 500 ? '280px' : '360px';
+
       images.forEach((img: HTMLImageElement) => {
-        this.renderer.setStyle(img, 'max-width', '500px');
+        this.renderer.setStyle(img, 'max-width', maxWidth);
         this.renderer.setStyle(img, 'height', 'auto');
         this.renderer.setStyle(img, 'display', 'block');
         this.renderer.setStyle(img, 'margin', '20px auto');
