@@ -1,0 +1,41 @@
+<div class="content">
+  <div class="blog-container">
+    <form [formGroup]="blogForm" (ngSubmit)="submitBlog()">
+      <mat-form-field appearance="fill">
+        <mat-label>Blog Title</mat-label>
+        <input matInput formControlName="title">
+        <mat-error *ngIf="blogForm.get('title')?.hasError('required')">Title is required</mat-error>
+      </mat-form-field>
+  
+      <quill-editor formControlName="content"></quill-editor>
+      <mat-error *ngIf="blogForm.get('content')?.hasError('required')">Content is required</mat-error>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Blog Image URL</mat-label>
+        <input matInput formControlName="image">
+        <mat-error *ngIf="blogForm.get('image')?.hasError('required')">Image URL is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Author Name</mat-label>
+        <input matInput formControlName="author">
+        <mat-error *ngIf="blogForm.get('author')?.hasError('required')">Author is required</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Submit Blog</button>
+    </form>
+  
+    <div class="blog-posts" id="blogPosts">
+      <div *ngFor="let post of blogPosts" class="blog-post-preview" (click)="selectPost(post)">
+        <img [src]="post.image" alt="{{ post.title }}">
+        <h3>{{ post.title }}</h3>
+        <div class="details">
+        <p class="author"> {{ post.author }} </p> 
+        <p class="date"> {{ post.date }}</p>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  
